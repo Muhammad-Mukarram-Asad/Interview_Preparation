@@ -1,7 +1,7 @@
 class Node {
   constructor(data) {
     this.data = data;
-    this.next = null;
+    this.next = null; // Make the next pointer to null just for first element.
   }
 }
 
@@ -26,6 +26,17 @@ class LinkedList {
 
     current.next = newNode;
   }
+
+  // Method for adding elements at the beginning of the list:
+
+  prepend(data)
+  {
+    const newNode = new Node(data);
+    newNode.next = this.head; // Means the new added value ka next pointer ko head krdiya ab wo whatever jo bhi value ho. Agr wo pehla element hai tou this.head jo hai
+    // wo null ho ga warna phr koi value ho gi.
+    this.head = newNode; // Aur yahan ham na head ko newValue krdi.
+  }
+    
 
   // Function to reverse the linked list
   reverse() {
